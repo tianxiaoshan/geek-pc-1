@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AuthRoute from './component/AuthRoute'
 import Home from './pages/Layout'
 import Login from './pages/Login'
 
@@ -11,7 +12,7 @@ function App() {
 
         {/* 配置路由的规则 */}
         <Switch>
-          <Route path="/home" component={Home}></Route>
+          <AuthRoute path="/home" component={Home}></AuthRoute>
           <Route path="/login" component={Login}></Route>
         </Switch>
       </div>

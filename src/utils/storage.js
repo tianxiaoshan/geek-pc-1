@@ -2,8 +2,8 @@
 const TOKEN_KEY = 'geek-pc-1'
 // 将 Token 信息存入缓存中
 // @param{Object}getTokenInfo 从后端获取到的 Token 信息存入缓存中
-export const setTokenInfo = (tokenInfo) => {
-  localStorage.setItem(TOKEN_KEY, JSON.stringify(tokenInfo)) // 单词写错 写错
+export const setTokenInfo = (token) => {
+  localStorage.setItem(TOKEN_KEY, token) // 单词写错 写错
 }
 
 // 从本地缓存中获取Token信息

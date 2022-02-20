@@ -16,7 +16,7 @@ export const login = (data) => {
       data,
     })
 
-    dispatch(saveToken(res.data))
-    setTokenInfo(res.data)
+    dispatch(saveToken(res.data.token))
+    setTokenInfo(res.data.token)
   }
 }

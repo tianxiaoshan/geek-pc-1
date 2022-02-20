@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Form, Input, Button, Checkbox, message } from 'antd'
 import logo from 'assets/images/logo.png'
-import './index.scss'
+import styles from './index.module.scss'
 import { login } from '../../store/actions/login'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -24,7 +24,7 @@ const Login = () => {
     }
   }
   return (
-    <div className="login">
+    <div className={styles.login}>
       <Card className="login-enter">
         <img src={logo} alt="" className="login-logo" />
         {/* 表单 */}

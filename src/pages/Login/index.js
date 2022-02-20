@@ -1,11 +1,14 @@
 import React from 'react'
-import { Button } from 'antd'
+import { Card } from 'antd'
+import logo from '../../assets/images/logo.png'
+import './index.css'
 
 const Login = () => {
   return (
-    <div>
-      121212
-      <Button type="primary">按钮</Button>
+    <div className="login">
+      <Card className="login-enter">
+        <img src={logo} alt="" className="login-logo" />
+      </Card>
     </div>
   )
 }

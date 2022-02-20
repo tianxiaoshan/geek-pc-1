@@ -1,11 +1,27 @@
 import React from 'react'
-import { Card, Form, Input, Button, Checkbox } from 'antd'
+import { Card, Form, Input, Button, Checkbox, message } from 'antd'
 import logo from 'assets/images/logo.png'
 import './index.scss'
+import { login } from '../../store/actions/login'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
 
 const Login = () => {
-  const onFinish = (values) => {
-    console.log(values)
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const onFinish = async (values) => {
+    setLoading(true)
+    try {
+      await dispatch(login(values))
+      message.success('登录成功', 1, () => {
+        history.push('/home')
+      })
+    } catch (error) {
+      message.warning(error.response.data.message, 1)
+      setLoading(false)
+    }
   }
   return (
     <div className="login">
@@ -80,7 +96,7 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" block>
+            <Button type="primary" htmlType="submit" block loading={loading}>
               登录
             </Button>
           </Form.Item>

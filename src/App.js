@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom'
 import AuthRoute from './component/AuthRoute'
 import Home from './pages/Layout'
 import Login from './pages/Login'
@@ -11,7 +16,9 @@ function App() {
         <Link to="/home">首页</Link> */}
 
         {/* 配置路由的规则 */}
+        {/* 进入首页优化 */}
         <Switch>
+          <Redirect exact from="/" to="/home"></Redirect>
           <AuthRoute path="/home" component={Home}></AuthRoute>
           <Route path="/login" component={Login}></Route>
         </Switch>

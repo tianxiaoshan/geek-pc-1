@@ -4,6 +4,9 @@
     position: relative;
     .ant-layout {
       height: 100%;
+      .ant-layout {
+        overflow: auto;
+      }
     }
     .ant-layout-header {
       padding: 0;

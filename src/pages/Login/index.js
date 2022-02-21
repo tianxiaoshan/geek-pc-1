@@ -19,8 +19,12 @@ const Login = () => {
         history.push('/home')
       })
     } catch (error) {
-      message.warning(error.response.data.message, 1)
-      setLoading(false)
+      if (!error.response) {
+        message.warning('网络错误，请稍后重试', 1)
+      } else {
+        message.warning(error.response.data.message, 1)
+        setLoading(false)
+      }
     }
   }
   return (

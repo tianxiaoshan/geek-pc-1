@@ -3,12 +3,12 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './reducers'
-import { setTokenInfo } from '../utils/storage'
+import { getTokenInfo } from '../utils/storage'
 
 const store = createStore(
   reducer,
   {
-    login: setTokenInfo(),
+    login: getTokenInfo(),
   },
   composeWithDevTools(applyMiddleware(thunk))
 )

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Spin } from 'antd'
+import { getTokenInfo } from './storage'
 
 // 创建instance实例
 const instance = axios.create({
@@ -12,6 +12,21 @@ instance.interceptors.request.use(
   function (config) {
     // ;<Spin />
     // 在发送请求之前做些什么
+
+    // const token = getTokenInfo().token
+    // if (token) {
+    //   config.headers.Authorization = 'Bearer ' + token
+    // // }
+    // console.log(getTokenInfo().token, 'getTokenInfo')
+    // console.log(getTokenInfo(), 'getTokenInfo')
+    // // const e = getTokenInfo()
+    // console.log('e', e)
+    // const { token } = e
+    // console.log(token, 'token')
+    if (config.url !== 'authorizations') {
+      config.headers.Authorization = `Bearer ${getTokenInfo().token}`
+    }
+
     return config
   },
   function (error) {
